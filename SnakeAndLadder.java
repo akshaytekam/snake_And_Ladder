@@ -3,23 +3,57 @@ package snakeand.ladder;
 import java.util.Random;
 public class SnakeAndLadder {
     
-    static void RollDice() {
-      Random rand = new Random();   //object of random class
-      int RAND_INT1 = rand.nextInt(6);  //Print value from 0 to 5
-      System.out.println("Roll Dice");
-      System.out.println("Random Numbers: "+RAND_INT1);
-        }
- 
-    public static void main(String[] args) {
-         int N=100;    //Number of cells
-          
-         int NUMBER_OF_PLAYER=1;
-         int PLAYER_POSITION=0;
-         System.out.println("Play Snake and Ladder");
-         //UC1
-        RollDice();
+    static final int FIRST_POSITION=0;
+    static final int NO_PLAY=0;
+    static final int LADDER=1;
+    static final int SNAKE=2;
+    static final int NUMBER_OF_PLAYER=1;
     
-         }
+    
+    private static int rollDice(){ 
+        Random rand = new Random();
+        return rand.nextInt(6)+1;     
     }
+    
+    public static void checkNoplayLadderAndSnake(){
+        int playerPosition = FIRST_POSITION;
+        Random rand = new Random();
+        int option = rand.nextInt(3);
+        int randomDieMove=rollDice();
+        
+         
+        if(option == NO_PLAY){
+            playerPosition=playerPosition;
+            System.out.println("No Changes");
+        }else if(option== LADDER){
+            playerPosition +=randomDieMove;
+            System.out.println("Player at"+randomDieMove);
+        }else if(option== SNAKE){
+            playerPosition +=randomDieMove;
+            System.out.println("It is a snake, go back to"+randomDieMove);
+        }
+            
+        
+    }
+    public static void checkTillFinalPosition(){
+        int playerPosition = 0;
+        while(playerPosition <= 100){
+            checkNoplayLadderAndSnake(); 
+        }
+    }
+    
+    public static void main(String[] args) {
+          
+          
+        System.out.println("Play Snake and Ladder");
+         //UC1
+         //checkNoplayLadderAndSnake();
+        checkTillFinalPosition();
+    
+    }
+
+     
+     
+}
     
 
