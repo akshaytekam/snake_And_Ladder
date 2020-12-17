@@ -17,6 +17,9 @@ public class SnakeAndLadder {
     
     public static void checkNoplayLadderAndSnake(){
         int playerPosition = FIRST_POSITION;
+        while(playerPosition<=100){
+            
+        
         Random rand = new Random();
         int option = rand.nextInt(3);
         int randomDieMove=rollDice();
@@ -31,24 +34,21 @@ public class SnakeAndLadder {
         }else if(option== SNAKE){
             playerPosition +=randomDieMove;
             System.out.println("It is a snake, go back to"+randomDieMove);
+        }else if(option<0){
+            playerPosition = FIRST_POSITION;
         }
-            
+        }  
         
     }
-    public static void checkTillFinalPosition(){
-        int playerPosition = 0;
-        while(playerPosition <= 100){
-            checkNoplayLadderAndSnake(); 
-        }
-    }
+     
     
     public static void main(String[] args) {
           
           
         System.out.println("Play Snake and Ladder");
          //UC1
-         //checkNoplayLadderAndSnake();
-        checkTillFinalPosition();
+         checkNoplayLadderAndSnake();
+        //checkTillFinalPosition();
     
     }
 
