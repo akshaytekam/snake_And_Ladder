@@ -3,25 +3,19 @@ package snakeand.ladder;
  
 public class SnakeAndLadder {
     
-    int cell;
-    int dist;
+    //int cell;
+    //int dist;
  
     public static void main(String[] args) {
-         int N=30;
-         int[] sheet=new int[N];
+         int N=100;    //Number of cells
+          
+         int player1;
+         int player_position=0;
+         System.out.println("Play Snake and Ladder");
          
-         for (int i=0; i<N; i++){
-             sheet[i]=-1;
-             
-             // Ladders
-		sheet[2] = 21;
-		sheet[4] = 7;
-		sheet[10] = 25;
-		sheet[19] = 28;
-
-		 
-
+          
+    //UC1
          }
     }
     
-}
+
